@@ -6,7 +6,7 @@ var request = require("request");
 
 var urlencodedParser = parser.urlencoded({ extended: false });
 
-app.use(express.static(__dirname + '/index.html'));
+app.use(express.static(__dirname));
 
 app.post('/login', urlencodedParser, function(req, res) {
   // Handle login via Venmo here
