@@ -10,9 +10,10 @@ app.get("/callback", function(req, res) {
   console.log("Handling the response");
   var code = req.params.code;
   console.log(code);
-  request.post("https://api.venmo.com/v1/oauth/access_token?client_id=2386&code=" + code + "&client_secret=38vPZDCqWU5QcsGGz6VdCNgG6ntZGKug", function(req, res) {
+  request.post("https://api.venmo.com/v1/oauth/access_token?client_id=2386&code=" + code + "&client_secret=38vPZDCqWU5QcsGGz6VdCNgG6ntZGKug", function(req, res, body) {
     console.log(req);
-    var info = JSON.parse(res);
+    var info = JSON.parse(body);
+    console.log(info);
     //console.log(info.user.first_name);
     //res.send(info.user.first_name);
   });
