@@ -8,7 +8,7 @@ app.use(express.static(__dirname));
 
 app.get("/callback", function(req, res) {
   console.log("Handling the response");
-  var code = req.params[code];
+  var code = req.param(code);
   console.log("The code is " + code);
   console.log("https://api.venmo.com/v1/oauth/access_token?client_id=2386&code=" + code + "&client_secret=38vPZDCqWU5QcsGGz6VdCNgG6ntZGKug");
   request.post("https://api.venmo.com/v1/oauth/access_token?client_id=2386&code=" + code + "&client_secret=38vPZDCqWU5QcsGGz6VdCNgG6ntZGKug", function(req, res) {
