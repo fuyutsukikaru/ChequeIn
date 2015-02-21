@@ -1,11 +1,12 @@
 var express = require('express');
 var app = express();
+var parser = require('body-parser');
 
 var request = require("request");
 
-app.use(express.bodyParser());
+var urlencodedParser = parser.urlencoded({ extended: false });
 
-app.post('/login', function(req, res) {
+app.post('/login', urlencodedParser, function(req, res) {
   // Handle login via Venmo here
   console.log("Handling login now");
 });
