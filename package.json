@@ -1,7 +1,7 @@
 {
   "name": "ChequeIn",
   "version": "0.0.1",
-  "main": "run.js",
+  "main": "index.html",
   "repository": {
     "type": "git",
     "url": "https://github.com/fuyutsukikaru/ChequeIn.git"
