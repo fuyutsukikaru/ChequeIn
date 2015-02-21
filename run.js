@@ -10,7 +10,7 @@ var request = require("request");
       client_secret: CONSUMER_SECRET
     },
     url = 'https://api.venmo.com/v1/oauth/access_token';*/
-var openurl = require('openurl');
+var open = require('open');
 
 var urlencodedParser = parser.urlencoded({ extended: false });
 
@@ -23,7 +23,7 @@ app.post('/login', urlencodedParser, function(req, res) {
     //console.log(body);
     //console.log(resp);
   //});
-  openurl.open("https://api.venmo.com/v1/oauth/authorize?client_id=2386&scope=make_payments%access_friends&response_type=code");
+  open("https://api.venmo.com/v1/oauth/authorize?client_id=2386&scope=make_payments%access_friends&response_type=code");
 });
 
 app.listen(process.env.PORT || 3000);
