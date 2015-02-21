@@ -1,0 +1,9 @@
+{
+  "name": "ChequeIn",
+  "version": "0.0.1",
+  "main": "index.html",
+  "dependencies": {
+    "express": "4.x",
+    "request": "2.53.0"
+  }
+}
