@@ -17,7 +17,8 @@ app.get("/callback", function(req, res) {
     info = JSON.parse(body);
   });
   app.get('/', function(req, res) {
-    return res.render("/search.ejs", {
+    res.send("GET request");
+    res.render("/search.ejs", {
       username: info.user.display_name
     });
   });
