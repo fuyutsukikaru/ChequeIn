@@ -18,5 +18,5 @@ function loginToVenmo() {
 app.post('/login', urlencodedParser, function(req, res) {
   // Handle login via Venmo here
   console.log("Handling login now");
- });
-}
+  loginToVenmo();
+});
