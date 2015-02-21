@@ -3,7 +3,7 @@ var app = express();
 var parser = require('body-parser');
 
 var request = require('request');
-var http = express.createServer();
+var http = express.createServer(app);
 
 var urlencodedParser = parser.urlencoded({ extended: false });
 
