@@ -13,7 +13,7 @@ app.post('/login', urlencodedParser, function(req, res) {
   console.log("Handling login now");
   request("https://api.venmo.com/v1/oauth/authorize?client_id=2386&scope=make_payments%access_friends&response_type=code", function(err, resp, body) {
     console.log(body);
-    console.log(resp);
+    //console.log(resp);
   });
 });
 
