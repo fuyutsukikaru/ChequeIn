@@ -12,6 +12,6 @@ app.post('/login', function(req, res) {
 
 app.listen(process.env.PORT || 3000);
 
-request("https://api.venmo.com/v1/oauth/authorize?client_id=2386&scope=make_payments%access_friends&response_type=code", function(err, resp, body) {
+/*app.request("https://api.venmo.com/v1/oauth/authorize?client_id=2386&scope=make_payments%access_friends&response_type=code", function(err, resp, body) {
   console.log(body);
-}
+});*/
