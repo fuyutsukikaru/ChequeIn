@@ -8,7 +8,7 @@ app.use(express.static(__dirname));
 
 app.get("/callback?:code", function(req, res) {
   console.log("Handling the response");
-  console.log(req.params.code);
+  console.log(req.param("code"));
 });
 
 app.listen(process.env.PORT || 3000);
