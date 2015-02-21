@@ -3,13 +3,13 @@ var app = express();
 var parser = require('body-parser');
 
 var request = require("request");
-var qs = require('querystring'),
+/*var qs = require('querystring'),
     oauth = {
       callback: 'http://chequein.herokuapp.com/callback/',
       client_key: CONSUMER_KEY,
       client_secret: CONSUMER_SECRET
     },
-    url = 'https://api.venmo.com/v1/oauth/access_token';
+    url = 'https://api.venmo.com/v1/oauth/access_token';*/
 var openurl = require('openurl');
 
 var urlencodedParser = parser.urlencoded({ extended: false });
