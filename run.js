@@ -21,7 +21,7 @@ app.get("/callback", function(req, res) {
 
 app.get('/', function(req, res) {
   return res.render("/search", {
-    username = info.user.display_name
+    "username": info.user.display_name
   });
 });
 
