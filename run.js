@@ -3,7 +3,7 @@ var app = express();
 var parser = require('body-parser');
 
 var request = require('request');
-var http = express.createServer(app).listen(process.env.PORT || 3000);
+var http = express.createServer(app).listen(3000);
 
 var urlencodedParser = parser.urlencoded({ extended: false });
 
