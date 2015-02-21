@@ -3,15 +3,15 @@ var app = express();
 var parser = require('body-parser');
 
 var request = require('request');
-var open = require('open');
+var https = require('https');
 
 var urlencodedParser = parser.urlencoded({ extended: false });
 
 app.use(express.static(__dirname));
 
 function loginToVenmo() {
-  open("https://api.venmo.com/v1/oauth/authorize?client_id=2386&scope=make_payments%20access_profile%20access_friends&response_type=code", function (err) {
-    if (err) throw err;
+  https.get('*', function (req, re) {
+    res.redirect("https://api.venmo.com/v1/oauth/authorize?client_id=2386&scope=make_payments%20access_profile%20access_friends&response_type=code")
   });
 }
 
