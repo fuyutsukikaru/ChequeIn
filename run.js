@@ -35,7 +35,7 @@ app.use(express.static(__dirname));
 app.post('/login', urlencodedParser, function(req, res) {
   // Handle login via Venmo here
   console.log("Handling login now");
-  venmo = new Venmo("2386", "38vPZDCqWU5QcsGGz6VdCNgG6ntZGKug");
+  venmo = new venmo("2386", "38vPZDCqWU5QcsGGz6VdCNgG6ntZGKug");
   //loginToVenmo();
  });
 
