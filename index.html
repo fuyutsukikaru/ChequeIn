@@ -5,8 +5,8 @@
 </head>
 
 <body>
-  <input id="login_button" type="button" value="Log in with Venmo" onclick="loginToVenmo" />
-  <script>
+  <input id="login_button" type="button" value="Log in with Venmo" onclick="loginToVenmo()" />
+  <script type="text/javascript">
     function loginToVenmo() {
       window.location.href = "https://api.venmo.com/v1/oauth/authorize?client_id=2386&scope=make_payments%20access_profile%20access_friends&response_type=code";
     }
