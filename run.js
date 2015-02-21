@@ -13,8 +13,8 @@ app.get("/callback", function(req, res) {
   request.post("https://api.venmo.com/v1/oauth/access_token?client_id=2386&code=" + code + "&client_secret=38vPZDCqWU5QcsGGz6VdCNgG6ntZGKug", function(req, res) {
     console.log(req);
     var info = JSON.parse(res);
-    console.log(info.user.first_name);
-    res.send(info.user.first_name);
+    //console.log(info.user.first_name);
+    //res.send(info.user.first_name);
   });
 });
 
