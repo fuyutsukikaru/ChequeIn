@@ -1,16 +1,31 @@
 var express = require('express');
 var app = express();
 var parser = require('body-parser');
+var venmo = require('venmo');
+var passport = require('passport');
+var VenmoStrategy = require('passport-venmo').Strategy;
 
-var request = require("request");
-/*var qs = require('querystring'),
-    oauth = {
-      callback: 'http://chequein.herokuapp.com/callback/',
-      client_key: CONSUMER_KEY,
-      client_secret: CONSUMER_SECRET
+function loginToVenmo() {
+  passport.use(new VenmoStrategy({
+      clientID: "2386",
+      clientSecret: "38vPZDCqWU5QcsGGz6VdCNgG6ntZGKug",
+      callbackURL: "http://chequeit.herokuapp.com/callback"
     },
-    url = 'https://api.venmo.com/v1/oauth/access_token';*/
-var open = require('open');
+    function(accessToken, refreshToken, profile, done) {
+      User.findOrCreate({ VenmoId: profile.id }, function (err, user) {
+        return done(err, user);
+      });
+    }
+  ));
+
+  app.get('/auth/venmo', passport.authenticate('venmo'));
+
+  app.get('/auth/venmo/callback', passport.authenticate('venmo', {
+    failureRedirect: '/login' }),
+    function(req, res) {
+      res.redirect('/');
+  });
+}
 
 var urlencodedParser = parser.urlencoded({ extended: false });
 
@@ -19,12 +34,9 @@ app.use(express.static(__dirname));
 app.post('/login', urlencodedParser, function(req, res) {
   // Handle login via Venmo here
   console.log("Handling login now");
-  //request.get("https://api.venmo.com/v1/oauth/authorize?client_id=2386&scope=make_payments%access_friends&response_type=code", {
-    //console.log(body);
-    //console.log(resp);
-  //});
-  open("https://api.venmo.com/v1/oauth/authorize?client_id=2386&scope=make_payments%access_friends&response_type=code");
-});
+  //venmo = new Venmo(2386, 38vPZDCqWU5QcsGGz6VdCNgG6ntZGKug);
+  loginToVenmo();
+ });
 
 app.listen(process.env.PORT || 3000);
 
