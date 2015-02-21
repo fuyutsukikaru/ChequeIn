@@ -15,10 +15,10 @@ app.get("/callback", function(req, res) {
   var code = req.query.code;
   request.post("https://api.venmo.com/v1/oauth/access_token?client_id=2386&code=" + code + "&client_secret=38vPZDCqWU5QcsGGz6VdCNgG6ntZGKug", function(request, response, body) {
     info = JSON.parse(body);
-    app.get('/', function(req, res) {
-      return res.render("/search", {
-        "username": info.user.display_name
-      });
+  });
+  app.get('/', function(req, res) {
+    return res.render("/search", {
+      "username": info.user.display_name
     });
   });
 });
