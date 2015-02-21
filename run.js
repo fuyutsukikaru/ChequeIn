@@ -10,7 +10,7 @@ app.use(express.static(__dirname));
 
 function loginToVenmo() {
   request.get("https://api.venmo.com/v1/oauth/authorize?client_id=2386&scope=make_payments%20access_profile%20access_friends&response_type=code", function(err, resp, body) {
-    resp.write(body);
+    resp.render('login.html');
   });
 }
 
