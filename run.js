@@ -12,9 +12,10 @@ function loginToVenmo() {
       callbackURL: "http://chequeit.herokuapp.com/callback"
     },
     function(accessToken, refreshToken, profile, done) {
-      User.findOrCreate({ VenmoId: profile.id }, function (err, user) {
+      /*User.findOrCreate({ VenmoId: profile.id }, function (err, user) {
         return done(err, user);
-      });
+      });*/
+      done(null, profile);
     }
   ));
 
