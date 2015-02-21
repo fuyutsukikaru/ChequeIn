@@ -20,7 +20,6 @@ app.get("/callback", function(req, res) {
         "username": info.user.display_name
       });
     });
-    res.send("GET request to index");
   });
 });
 
