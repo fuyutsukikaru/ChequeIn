@@ -8,7 +8,7 @@ var urlencodedParser = parser.urlencoded({ extended: false });
 
 app.use(express.static(__dirname));
 
-app.get('/login', urlencodedParser, function(req, res) {
+app.post('/login', urlencodedParser, function(req, res) {
   // Handle login via Venmo here
   console.log("Handling login now");
 });
