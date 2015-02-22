@@ -17,21 +17,13 @@ app.get("/callback", function(req, res) {
   var code = req.query.code;
   request.post("https://api.venmo.com/v1/oauth/access_token?client_id=2386&code=" + code + "&client_secret=38vPZDCqWU5QcsGGz6VdCNgG6ntZGKug", function(request, response, body) {
     info = JSON.parse(body);
-    http.createServer(function (req, resp) {
-      var body = 'redirecting';
-      resp.writeHead(302, {
-        'Content-Type': 'text/plain',
-        'Location': 'http://chequein.herokuapp.com/search',
-        'content-length': body.length
-      });
-      resp.end(body);
-    });
     return;
   });
   return;
 });
 
 app.get('/', function(req, res) {
+  res.redirect('/views/search');
   res.render("/search", {
     username: info.user.display_name
   });
