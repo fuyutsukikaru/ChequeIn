@@ -9,6 +9,7 @@
   <input id="locator_button" type="button" value="Get My Location" onclick="locator()" />
   <script type="text/javascript">
     function locator() {
+      console.log("Button was pressed");
       if (navigator.geolocation) {
         navigator.geolocation.getCurrenPosition(GetLocation);
       } else {
@@ -16,6 +17,7 @@
       }
     }
     function GetLocation(location) {
+      console.log("Getting location");
       alert("Latitude: " + location.coords.latitude + " and Longitude: " + location.coords.longitude);
     }
   </script>
