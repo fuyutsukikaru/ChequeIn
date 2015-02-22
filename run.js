@@ -32,8 +32,9 @@ app.get("/callback", function(req, res) {
 
 app.post("/location", urlParser, function(req, res) {
   yelp.search({term: "food", location: "Palo Alto", cll: req.body.latitude + "," + req.body.longitude, limit: 10, sort: 1, radius_filter: 5000}, function (err, data) {
-    console.log(data);
+    //console.log(data);
     business = data.businesses;
+    console.log(business);
     var total = data.total;
     var names = [];
     for (var i = 0; i < total; i++) {
