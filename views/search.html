@@ -2,17 +2,20 @@
 <html>
 <head>
   <title>Find the Restaurant</title>
-  <script type="text/javascript">
-    window.onload = function() {
-      navigator.geolocation.getCurrenPosition(GetLocation);
-    }
-    function GetLocation(location) {
-      alert(location.coords.latitude);
-      alert(location.coords.longitude);
-    }
-  </script>
 </head>
 
 <body>
+  <script type="text/javascript">
+    window.onload = function() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrenPosition(GetLocation);
+      } else {
+        alert("Geolocation is not supported by this browser.");
+      }
+    }
+    function GetLocation(location) {
+      alert("Latitude: " + location.coords.latitude + " and Longitude: " + location.coords.longitude);
+    }
+  </script>
   <h1 id="welcome">Welcome <%= username %>!</h1>
 </body>
