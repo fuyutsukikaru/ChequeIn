@@ -7,7 +7,7 @@ var http = require('http');
 
 app.use(express.static(__dirname));
 app.engine('.html', require('ejs').__express);
-app.set('views', '/views');
+app.set('views', __dirname + '/views');
 app.set('view engine', 'html');
 
 var info = "";
