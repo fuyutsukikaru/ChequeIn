@@ -23,8 +23,7 @@ app.get("/callback", function(req, res) {
 });
 
 app.post("/location", function(req, res) {
-  console.log("Latitude is " + req.body.latitude);
-  console.log("Longitude is " + req.body.longitude);
+  res.send("Latitude is " + req.body.latitude + "and Longitude is " + req.body.longitude);
 });
 
 app.listen(process.env.PORT || 3000);
