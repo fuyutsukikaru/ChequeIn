@@ -20,6 +20,7 @@ app.set('view engine', 'html');
 var urlParser = parser.urlencoded({ extended: false });
 
 var info = "";
+var business;
 
 app.get("/callback", function(req, res) {
   var code = req.query.code;
@@ -32,7 +33,7 @@ app.get("/callback", function(req, res) {
 app.post("/location", urlParser, function(req, res) {
   yelp.search({term: "food", location: "Palo Alto", cll: req.body.latitude + "," + req.body.longitude, limit: 10, sort: 1, radius_filter: 5000}, function (err, data) {
     //console.log(data);
-    var business = data.businesses;
+    business = data.businesses;
     //console.log(business);
     var total = data.total;
     var names = [];
@@ -43,6 +44,13 @@ app.post("/location", urlParser, function(req, res) {
       username: info.user.display_name,
       place: names
     });
+  });
+});
+
+app.get("/place", function(req, res) {
+  var id = req.query.id;
+  res.render("place", {
+    title: businesses[id].name
   });
 });
 
