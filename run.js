@@ -30,12 +30,7 @@ app.get("/callback", function(req, res) {
 });
 
 app.post("/location", urlParser, function(req, res) {
-  //res.send(req.body);
-  //res.send("Latitude is " + req.body.latitude + " and Longitude is " + req.body.longitude);
-  /*res.render("location", {
-    username: info.user.display_name
-  });*/
-  yelp.search({location: "Palo Alto", cll: req.body.latitude + "," + req.body.longitude}, function (err, data) {
+  yelp.search({location: "Palo Alto", cll: req.body.latitude + "," + req.body.longitude, limit: "10", sort: "1", radius_filter: "5000"}, function (err, data) {
     console.log(data);
   });
 });
