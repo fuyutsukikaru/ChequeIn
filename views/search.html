@@ -5,8 +5,10 @@
 </head>
 
 <body>
+  <h1 id="welcome">Welcome <%= username %>!</h1>
+  <input id="locator_button" type="button" value="Get My Location" onclick="locator()" />
   <script type="text/javascript">
-    var locator = function() {
+    function locator() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrenPosition(GetLocation);
       } else {
@@ -17,6 +19,5 @@
       alert("Latitude: " + location.coords.latitude + " and Longitude: " + location.coords.longitude);
     }
   </script>
-  <h1 id="welcome">Welcome <%= username %>!</h1>
-  <button value="Get My Location" onclick="locator" />
 </body>
+</html>
