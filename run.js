@@ -22,7 +22,6 @@ app.get("/callback", function(req, res) {
     res.render("search", {
       username: info.user.display_name
     });
-    res.status(201).end();
   });
 });
 
