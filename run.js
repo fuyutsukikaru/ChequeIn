@@ -35,7 +35,7 @@ app.post("/location", urlParser, function(req, res) {
   /*res.render("location", {
     username: info.user.display_name
   });*/
-  yelp.search({cll: req.body.latitude + "," + req.body.longitude}, function (err, data) {
+  yelp.search({location: "Palo Alto" cll: req.body.latitude + "," + req.body.longitude}, function (err, data) {
     console.log(data);
   });
 });
