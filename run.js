@@ -19,7 +19,7 @@ app.get("/callback", function(req, res) {
     info = JSON.parse(body);
     //res.status(201).end();
     //res.redirect("/search");
-    res.render("/search", {
+    res.render("/search.html", {
       username: info.user.display_name
     });
     res.status(201).end();
