@@ -9,8 +9,7 @@
   <table id="business">
     <% for(var i = 0; i < place.length; i++) {%>
       <tr>
-        <td><img src=<%= '"' + pics[i] + '"' %>/></td>
-        <td><%= place[i] %></td>
+        <td><a href=<%= '"/location?id=' + i + '">' place[i] %></a></td>
       </tr>
     <% }%>
   </table>
