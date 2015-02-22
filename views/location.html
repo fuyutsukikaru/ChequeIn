@@ -6,5 +6,13 @@
 
 <body>
   <h1 id="welcome">Welcome <%= username %>!</h1>
+  <table id="business">
+    <% for(var i = 0; i < place.length; i++) {%>
+      <tr>
+        <td><img src=<%- '"' + pic[i] + '"' + "/>" %></td>
+        <td><%= place[i] %><td>
+      </tr>
+    <% }%>
+  </table>
 </body>
 </html>
