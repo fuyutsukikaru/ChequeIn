@@ -41,8 +41,7 @@ app.post("/location", urlParser, function(req, res) {
     }
     res.render("location", {
       username: info.user.display_name,
-      place: names,
-      pics: images
+      place: names
     });
   });
 });
