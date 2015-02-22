@@ -19,15 +19,11 @@ app.get("/callback", function(req, res) {
     info = JSON.parse(body);
     return;
   });
-  return;
-});
-
-app.get('/', function(req, res) {
   res.redirect('/views/search');
   res.render("/search", {
     username: info.user.display_name
   });
+  return;
 });
 
 app.listen(process.env.PORT || 3000);
-
