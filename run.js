@@ -36,13 +36,15 @@ app.post("/location", urlParser, function(req, res) {
     //console.log(business);
     var total = data.total;
     var names = [];
+    var images = [];
     for (var i = 0; i < data.businesses.length; i++) {
-      console.log(data.businesses[i].name);
       names.push(data.businesses[i].name);
+      images.push(data.businesses[i].image_url);
     }
     res.render("location", {
       username: info.user.display_name,
       place: names,
+      pics: images
     });
   });
 });
