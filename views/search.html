@@ -2,15 +2,15 @@
 <html>
 <head>
   <title>Find the Restaurant</title>
-</head>
-
-<body>
-  <h1 id="welcome">Welcome <%= username %>!</h1>
   <script type="text/javascript">
-    window.navigator.geolocation.getCurrenPosition(GetLocation);
+    window.onload.navigator.geolocation.getCurrenPosition(GetLocation);
     function GetLocation(location) {
       console.log(location.coords.latitude);
       console.log(location.coords.longitude);
     }
   </script>
+</head>
+
+<body>
+  <h1 id="welcome">Welcome <%= username %>!</h1>
 </body>
