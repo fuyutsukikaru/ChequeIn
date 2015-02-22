@@ -10,7 +10,7 @@ app.engine('.html', require('ejs').__express);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'html');
 
-var urlParser = parser.urlencoded({ extended: false });
+var urlParser = parser.text({ type: 'text/html' });
 
 var info = "";
 
@@ -25,7 +25,7 @@ app.get("/callback", function(req, res) {
 });
 
 app.post("/location", urlParser, function(req, res) {
-  res.send("Latitude is " + req.body.latitude + "and Longitude is " + req.body.longitude);
+  res.send("Latitude is " + req.body.latitude + " and Longitude is " + req.body.longitude);
 });
 
 app.listen(process.env.PORT || 3000);
