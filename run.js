@@ -37,7 +37,7 @@ app.post("/location", urlParser, function(req, res) {
     var total = data.total;
     var names = [];
     for (var i = 0; i < total; i++) {
-      names.push(business.name);
+      names.push(business[i].name);
     }
     res.render("location", {
       username: info.user.display_name,
