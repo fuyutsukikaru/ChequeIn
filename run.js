@@ -55,6 +55,7 @@ app.get("/place", function(req, res) {
   var id = req.query.id;
   locuClient.search({name: business[id].name, locality: 'Palo Alto'}, function(result) {
     request.get("https://api.venmo.com/v1/users/" + info.user.id + "/friends?access_token=" + code, function(request, response, body) {
+      console.log(body);
       var friends = [];
       var friendsId = [];
       for (var i = 0; i < body.data.length; i++) {
