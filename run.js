@@ -18,6 +18,7 @@ app.get("/callback", function(req, res) {
   request.post("https://api.venmo.com/v1/oauth/access_token?client_id=2386&code=" + code + "&client_secret=38vPZDCqWU5QcsGGz6VdCNgG6ntZGKug", function(request, response, body) {
     info = JSON.parse(body);
     res.status(201).end();
+    res.redirect("/search");
     res.render("/search", {
       username: info.user.display_name
     });
