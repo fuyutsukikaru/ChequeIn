@@ -5,6 +5,13 @@ var parser = require('body-parser');
 var request = require('request');
 var http = require('http');
 
+var yelp = require('yelp').createClient({
+  consumer_key: "U0hKoZQPvmVWslo6YNCOEQ",
+  consumer_secret: "va2XCPgADbfUbfWERgLtrmwZwFs",
+  token: "Lm5UZZMz9Tjrn8Er5gPmsuXoHzyUBaxb",
+  token_secret: "5BYJp02m0i7m64xiKhYhlrlK0e0"
+});
+
 app.use(express.static(__dirname));
 app.engine('.html', require('ejs').__express);
 app.set('views', __dirname + '/views');
@@ -28,9 +35,9 @@ app.post("/location", urlParser, function(req, res) {
   /*res.render("location", {
     username: info.user.display_name
   });*/
-  request.get("https://api.yelp.com/v2/search?limit=10&sort=1&radius_filter=5000&cll=" + req.body.latitude + "," + req.body.longitude, function(request, response, body) {
-    res.send(body);
-  });
+  yelp.search({cll: req.body.latitude + "," + req.body.longitude}, function (err, data) {
+    console.log(data);
+  }
 });
 
 app.listen(process.env.PORT || 3000);
