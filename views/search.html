@@ -16,14 +16,16 @@
     }
     function GetLocation(location) {
       //alert("Latitude: " + location.coords.latitude + " and Longitude: " + location.coords.longitude);
-      var url = "/location";
-      var params = "latitude=" + location.coords.latitude + "&longitude=" + location.coords.longitude;
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", url, true);
-
-      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      xhr.send(params);
+      document.getElementById('lat').value = location.coords.latitude;
+      document.getElementById('long').value = location.coords.longitude;
+      document.getElementById('loc_submit').submit();
     }
   </script>
+
+  <form method="post" action="/location">
+    <input id="lat" type="text" name="Latitude">
+    <input id="long" type="text" name="Longitude">
+    <input id="loc_submit" type="submit" value="Search">
+  </form>
 </body>
 </html>

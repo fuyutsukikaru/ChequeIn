@@ -22,7 +22,7 @@ app.get("/callback", function(req, res) {
   });
 });
 
-app.post("/", function(req, res) {
+app.post("/location", function(req, res) {
   console.log("Latitude is " + req.query.latitude);
   console.log("Longitude is " + req.query.longitude);
 });
