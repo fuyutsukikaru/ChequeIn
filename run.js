@@ -24,7 +24,7 @@ app.get("/callback", function(req, res) {
   });
 });
 
-app.post("/location", urlParser, function(req, res) {
+app.post("/", urlParser, function(req, res) {
   //res.send(req.body);
   //res.send("Latitude is " + req.body.latitude + " and Longitude is " + req.body.longitude);
   res.end();
