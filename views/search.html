@@ -2,11 +2,15 @@
 <html>
 <head>
   <title>Find the Restaurant</title>
+</head>
+
+<body>
+  <h1 id="welcome">Welcome <%= username %>!</h1>
   <script type="text/javascript">
-    function locator() {
+    window.onload = function() {
       console.log("Button was pressed");
       if (navigator.geolocation) {
-        navigator.geolocation.getCurrenPosition(GetLocation);
+        navigator.geolocation.getCurrentPosition(GetLocation);
       } else {
         alert("Geolocation is not supported by this browser.");
       }
@@ -16,9 +20,5 @@
       alert("Latitude: " + location.coords.latitude + " and Longitude: " + location.coords.longitude);
     }
   </script>
-</head>
-
-<body>
-  <h1 id="welcome" onload="locator()">Welcome <%= username %>!</h1>
 </body>
 </html>
