@@ -8,7 +8,6 @@
   <h1 id="welcome">Welcome <%= username %>!</h1>
   <script type="text/javascript">
     window.onload = function() {
-      console.log("Button was pressed");
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(GetLocation);
       } else {
@@ -16,8 +15,14 @@
       }
     }
     function GetLocation(location) {
-      console.log("Getting location");
-      alert("Latitude: " + location.coords.latitude + " and Longitude: " + location.coords.longitude);
+      //alert("Latitude: " + location.coords.latitude + " and Longitude: " + location.coords.longitude);
+      var url = "location";
+      var params = "latitude=" + location.coords.latitude + "&longitude=" + location.coords.longitude;
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", url, true);
+
+      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhr.send(params);
     }
   </script>
 </body>
