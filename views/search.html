@@ -16,7 +16,7 @@
     }
     function GetLocation(location) {
       //alert("Latitude: " + location.coords.latitude + " and Longitude: " + location.coords.longitude);
-      var url = "location";
+      var url = document.URL;
       var params = "latitude=" + location.coords.latitude + "&longitude=" + location.coords.longitude;
       var xhr = new XMLHttpRequest();
       xhr.open("POST", url, true);
