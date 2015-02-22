@@ -18,16 +18,16 @@ app.get("/callback", function(req, res) {
   var code = req.query.code;
   request.post("https://api.venmo.com/v1/oauth/access_token?client_id=2386&code=" + code + "&client_secret=38vPZDCqWU5QcsGGz6VdCNgG6ntZGKug", function(request, response, body) {
     info = JSON.parse(body);
-    res.render("search", {
-      username: info.user.display_name
-    });
+    res.render("search");
   });
 });
 
-app.post("/", urlParser, function(req, res) {
+app.post("/location", urlParser, function(req, res) {
   //res.send(req.body);
   //res.send("Latitude is " + req.body.latitude + " and Longitude is " + req.body.longitude);
-  res.end();
+  res.render("location", {
+    username: info.user.display_name
+  });
 });
 
 app.listen(process.env.PORT || 3000);
