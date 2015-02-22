@@ -7,7 +7,7 @@ var http = require('http');
 
 app.use(express.static(__dirname));
 app.engine('.html', require('ejs').__express);
-app.set('views', __dirname + '/views');
+app.set('views', __dirname + '../views');
 app.set('view engine', 'html');
 
 var info = "";
@@ -19,7 +19,7 @@ app.get("/callback", function(req, res) {
     info = JSON.parse(body);
     //res.status(201).end();
     //res.redirect("/search");
-    res.render("/search.html", {
+    res.render("/search", {
       username: info.user.display_name
     });
     res.status(201).end();
