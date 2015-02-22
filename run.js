@@ -30,7 +30,7 @@ app.get("/callback", function(req, res) {
 });
 
 app.post("/location", urlParser, function(req, res) {
-  yelp.search({location: "Palo Alto", cll: req.body.latitude + "," + req.body.longitude, limit: "10", sort: "1", radius_filter: "5000"}, function (err, data) {
+  yelp.search({term: "food", location: "Palo Alto", cll: req.body.latitude + "," + req.body.longitude, limit: 10, sort: 1, radius_filter: 5000}, function (err, data) {
     console.log(data);
   });
 });
