@@ -6,5 +6,23 @@
 
 <body>
   <h1 id="place"><%= title %></h1>
+  <form method="post" action="/charge">
+    Tip: <input id="tip" type="number" name="tip" min="0" max="1" step="0.01" value="0.15">
+    Tax: <input id="tax" type="number" name="tax" min="0" max="1" step="0.01" value="0.08">
+    <input id="add_friend" type="button" value="Add Friend" onclick="addFriend()">
+    <input id="submit" type="submit" value="Send Charge">
+  </form>
+  <script type="text/javascript">
+    function addFriend() {
+      var div = document.createElement('div');
+      div.className = "friend";
+      form.innerHTML = '<select>\
+                       <%= for(var i = 0; i< names.length; i++) {%>\
+                         <option value="<%=ids[i] %>"><%= names[i] %></option>\
+                        <% }%>\
+                        </select>\
+                        Amount: <input id="charge" type="number" name="charge" min="0" max="1000" step="0.01" value="0.00">';
+    }
+  </script>
 </body>
 </html>

@@ -12,6 +12,9 @@ var yelp = require('yelp').createClient({
   token_secret: "5BYJp02m0i7m64xiKhYhlrlK0e0"
 });
 
+var locu = require('locu');
+var locuClient = new locu.VenueClient("a260eae3274e2138b032191c58f63bc5f308b416");
+
 app.use(express.static(__dirname));
 app.engine('.html', require('ejs').__express);
 app.set('views', __dirname + '/views');
@@ -49,8 +52,24 @@ app.post("/location", urlParser, function(req, res) {
 
 app.get("/place", function(req, res) {
   var id = req.query.id;
-  res.render("place", {
-    title: business[id].name
+  var menus;
+  locuClient.search({name: business[id].name, locality: 'Palo Alto'}, function(result) {
+    if (!result[0].menu_items) {
+      menus = "No menus available";
+    }
+    request.get("https://api.venmo.com/v1/users/" + info.user.id + "/firends?access_token=" + code, function(request, response, body) {
+      var friends = [];
+      var friendsId = [];
+      for (var i = 0; i < body.data.length; i++) {
+        friends.push(body.data[i].display_name);
+        friendsId.push(body.data[i].id);
+      }
+      res.render("place", {
+        title: business[id].name,
+        names: friends,
+        ids: friendsId
+      });
+    });
   });
 });
 
