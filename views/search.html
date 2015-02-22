@@ -2,11 +2,6 @@
 <html>
 <head>
   <title>Find the Restaurant</title>
-</head>
-
-<body>
-  <h1 id="welcome">Welcome <%= username %>!</h1>
-  <input id="locator_button" type="button" value="Get My Location" onclick="locator()" />
   <script type="text/javascript">
     function locator() {
       console.log("Button was pressed");
@@ -21,5 +16,9 @@
       alert("Latitude: " + location.coords.latitude + " and Longitude: " + location.coords.longitude);
     }
   </script>
+</head>
+
+<body onload="locator()">
+  <h1 id="welcome">Welcome <%= username %>!</h1>
 </body>
 </html>
