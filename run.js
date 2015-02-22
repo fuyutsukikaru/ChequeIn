@@ -52,11 +52,7 @@ app.post("/location", urlParser, function(req, res) {
 
 app.get("/place", function(req, res) {
   var id = req.query.id;
-  var menus;
   locuClient.search({name: business[id].name, locality: 'Palo Alto'}, function(result) {
-    if (!result[0].menu_items) {
-      menus = "No menus available";
-    }
     request.get("https://api.venmo.com/v1/users/" + info.user.id + "/firends?access_token=" + code, function(request, response, body) {
       var friends = [];
       var friendsId = [];
