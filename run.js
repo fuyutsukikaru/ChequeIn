@@ -25,8 +25,11 @@ app.get("/callback", function(req, res) {
 app.post("/location", urlParser, function(req, res) {
   //res.send(req.body);
   //res.send("Latitude is " + req.body.latitude + " and Longitude is " + req.body.longitude);
-  res.render("location", {
+  /*res.render("location", {
     username: info.user.display_name
+  });*/
+  request.get("https://api.yelp.com/v2/search?limit=10&sort=1&radius_filter=5000&cll=" + req.body.latitude + "," + req.body.longitude, function(request, response, body) {
+    res.send(body);
   });
 });
 
