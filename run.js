@@ -33,11 +33,12 @@ app.post("/location", urlParser, function(req, res) {
   yelp.search({term: "food", location: "Palo Alto", cll: req.body.latitude + "," + req.body.longitude, limit: 10, sort: 1, radius_filter: 5000}, function (err, data) {
     //console.log(data);
     var business = data.businesses;
-    console.log(business);
+    //console.log(business);
     var total = data.total;
     var names = [];
-    for (var i = 0; i < total; i++) {
-      names.push(business[i].name);
+    for (var i = 0; i < data.businesses.length; i++) {
+      console.log(data.businesses[i].name);
+      names.push(data.businesses[i].name);
     }
     res.render("location", {
       username: info.user.display_name,
