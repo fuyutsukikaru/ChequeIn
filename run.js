@@ -38,8 +38,8 @@ app.post("/location", urlParser, function(req, res) {
     var names = [];
     var images = [];
     for (var i = 0; i < total; i++) {
-      names.append(business.name);
-      images.append(business.image_url);
+      names.push(business.name);
+      images.push(business.image_url);
     }
     res.render("location", {
       username: info.user.display_name,
