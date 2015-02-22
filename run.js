@@ -37,7 +37,7 @@ app.post("/location", urlParser, function(req, res) {
   });*/
   yelp.search({cll: req.body.latitude + "," + req.body.longitude}, function (err, data) {
     console.log(data);
-  }
+  });
 });
 
 app.listen(process.env.PORT || 3000);
