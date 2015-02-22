@@ -3,10 +3,12 @@
 <head>
   <title>Find the Restaurant</title>
   <script type="text/javascript">
-    window.onload.navigator.geolocation.getCurrenPosition(GetLocation);
+    window.onload = function() {
+      navigator.geolocation.getCurrenPosition(GetLocation);
+    }
     function GetLocation(location) {
-      console.log(location.coords.latitude);
-      console.log(location.coords.longitude);
+      alert(location.coords.latitude);
+      alert(location.coords.longitude);
     }
   </script>
 </head>
