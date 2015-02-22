@@ -16,6 +16,8 @@
     }
     function GetLocation(location) {
       //alert("Latitude: " + location.coords.latitude + " and Longitude: " + location.coords.longitude);
+      console.log(location.coords.latitude);
+      console.log(location.coords.longitude);
       document.getElementById('latitude').value = location.coords.latitude;
       document.getElementById('longitude').value = location.coords.longitude;
       document.getElementById('loc_submit').click();
@@ -23,8 +25,8 @@
   </script>
 
   <form method="post" action="/location">
-    <input id="latitude" type="text" name="Latitude">
-    <input id="longitude" type="text" name="Longitude">
+    <input id="latitude" name="latitude" type="text" name="Latitude">
+    <input id="longitude" name="longitude" type="text" name="Longitude">
     <input id="loc_submit" type="submit" value="Search">
   </form>
 </body>
