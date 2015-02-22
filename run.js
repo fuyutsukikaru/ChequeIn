@@ -41,6 +41,7 @@ app.post("/location", urlParser, function(req, res) {
       names.push(business.name);
       images.push(business.image_url);
     }
+    console.log(names);
     res.render("location", {
       username: info.user.display_name,
       place: names,
