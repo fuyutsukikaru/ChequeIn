@@ -50,7 +50,7 @@ app.post("/location", urlParser, function(req, res) {
 app.get("/place", function(req, res) {
   var id = req.query.id;
   res.render("place", {
-    title: businesses[id].name
+    title: business[id].name
   });
 });
 
